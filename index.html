@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TicTacToe</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- start of jumbotron -->
+    <div class="jumbotron jumbotron-fluid text-center bg-light p-5">
+        <div class="container-1">
+          <h1 class="h1-responsive display-2" id="jumbText">Tic-Tac-Toe</h1>
+          <p class="lead" id="jumbText">A game everyone is sure to love, there's plenty of fun for all revelers to have.</p>
+        </div>
+      </div>
+  <!-- end of jumbotron -->
+
+  <!-- build the framework in html
+          show when turn is over and which player is up
+          add a removeEventListner to the same element with addEventListner to stop excess clicks.
+          reset button
+          game board -->
+
+    <!-- start of container for gameboard -->
+    <div class="container" id="main">
+      <h1 class="h1-responsive text-center">Tic Tac Toe</h1><br>
+      <h2 id="gameText" class="h2-responsive mb-5"></h2>
+    
+    <!-- start of gameboard -->
+      <div class="container1">
+        <br>
+        <div class="board" id="board1">
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+        </div>
+    </div>
+    <!-- end of gameboard -->
+    </div> <br>
+    <!-- endd of container for gameboard -->
+      
+    <!-- start of play again buttion -->
+        <button class="btn btn-warning mb-2" id="newGame">New Game</button>
+    </div>
+    <!-- end of play again button -->
+
+    <script src="node_modules/jquery/dist/jquery.js"></script> <!-- this come first to make sure it runs first -->
+    <script src="index.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>

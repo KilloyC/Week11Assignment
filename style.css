@@ -1,0 +1,142 @@
+/* build the framework in html
+		show when turn is over and which player is up
+		add a removeEventListner to the same element with addEventListner to stop excess clicks.
+		reset button
+		game board */
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+	background: linear-gradient(to right, rgb(198, 237, 244), rgb(174, 223, 243), rgb(129, 210, 243), rgb(76, 197, 245));
+}
+
+#jumbText {
+    font-family: "Audiowide", sans-serif;
+}
+
+.container{
+	width: 330px;
+	overflow: hidden;
+	margin: 50px auto 0 auto;
+    font-family: 'permanent', cursive;
+}
+
+#gameText{
+	display: block;
+	text-align: center;
+	font-family: sans-serif;
+}
+
+#newGame {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container1 {
+    flex: 1 1 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+}
+
+.cell {
+    position: relative;
+    border: 2px solid black;
+    width: 100px;
+    padding-top: 100px;
+    cursor: pointer;
+}
+
+/* removes the border around the cells */
+.cell:nth-child(1),
+.cell:nth-child(2),
+.cell:nth-child(3) {
+    border-top: none;
+}
+
+.cell:nth-child(1),
+.cell:nth-child(4),
+.cell:nth-child(7) {
+    border-left: none;
+}
+
+.cell:nth-child(3),
+.cell:nth-child(6),
+.cell:nth-child(9) {
+    border-right: none;
+}
+
+.cell:nth-child(7),
+.cell:nth-child(8),
+.cell:nth-child(9) {
+    border-bottom: none;
+}
+
+/* doesnt let you click a cell after it has already been clicked. */
+.cell.x,
+.cell.o {
+    cursor: not-allowed;
+}
+
+/* creates the x and o the game uses, and lets you see the charater before clicking a cell. */
+.cell.x::before,
+.cell.x::after,
+.board.turn-x .cell:not(.x):not(.o):hover::before,
+.board.turn-x .cell.cell:not(.x):not(.o):hover::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 90px;
+    background-color: black;
+    border-radius: 99px;
+}
+
+.cell.x::before,
+.board.turn-x .cell:not(.x):not(.o):hover::before {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.cell.x::after,
+.board.turn-x .cell.cell:not(.x):not(.o):hover::after {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.cell.o::before,
+.board.turn-o .cell:not(.x):not(.o):hover::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+    height: 70px;
+    border: 10px solid black;
+    border-radius: 50%;
+}
+
+.board.turn-x .cell:not(.x):not(.o):hover::before,
+.board.turn-x .cell.cell:not(.x):not(.o):hover::after {
+    background-color: grey;
+}
+
+.board.turn-o .cell:not(.x):not(.o):hover::before {
+    border-color: grey;
+}
