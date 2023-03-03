@@ -55,12 +55,10 @@ function clickedCell() {
 
     //declares a winner or ends in a draw
     if(checkWinner()) {
-        alert(`Player ${currentPlayer.toUpperCase()} has won!! Click Ok to start a new game`);
-
-        startGame();
+        text.textContent = `Player ${currentPlayer.toUpperCase()} has won!! Play Again?`;
 
     } else if(draw()) {
-        text.textContent = `Cat's Game! click below to start a new game!!`;
+        text.textContent = `Cat's Game! Play Again?!!`;
         
    } else {
         currentPlayer = currentPlayer == 'x' ? 'o' : 'x'; //ternary operator that is used instead of if..if/else statements. Checking if currentPlayer is equal to X, else O, else X. if the currentPlayer is X it will switch to O and vise versa.
